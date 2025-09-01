@@ -9,13 +9,15 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:brycleansyourcode.cleaning"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "brycleansyourcode.cleaning",
-        "title": "Cleaning your code"
+        "title": "Bry cleans your code"
       }
     ]
   },
