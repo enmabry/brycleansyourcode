@@ -29,22 +29,21 @@ export function activate(context: vscode.ExtensionContext) {
 
     let cleanedText = text;
 
-    // Regex mejorados para mayor precisión
     if (options.value === 'logs' || options.value === 'all') {
-      // Elimina líneas completas con console.log, console.warn, etc. (soporta espacios y paréntesis anidados simples)
-      cleanedText = cleanedText.replace(/^[ \t]*console\.(log|warn|error|info|debug)\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)\s*;?\s*$/gm, '');
+      // Elimina cualquier console.*(...) aunque tenga espacios, saltos o anidación
+      cleanedText = cleanedText.replace(/console\.(log|warn|error|info|debug)\s*\([^)]*\)\s*;?/g, '');
     }
 
     if (options.value === 'comments' || options.value === 'all') {
-      // Elimina comentarios de línea completos
-      cleanedText = cleanedText.replace(/^[ \t]*\/\/.*$/gm, '');
-      // Elimina comentarios de bloque completos (en líneas completas)
-      cleanedText = cleanedText.replace(/^[ \t]*\/\*[\s\S]*?\*\/[ \t]*$/gm, '');
+      // Elimina comentarios de línea (incluso si están al lado de código)
+      cleanedText = cleanedText.replace(/\/\/.*$/gm, '');
+      // Elimina comentarios de bloque
+      cleanedText = cleanedText.replace(/\/\*[\s\S]*?\*\//g, '');
     }
 
     if (options.value === 'debugger' || options.value === 'all') {
-      // Elimina líneas completas con debugger
-      cleanedText = cleanedText.replace(/^[ \t]*debugger;?[ \t]*$/gm, '');
+      // Elimina cualquier aparición de 'debugger' (líneas completas o en medio de código)
+      cleanedText = cleanedText.replace(/\bdebugger\s*;?/g, '');
     }
 
     // Elimina líneas en blanco sobrantes
@@ -67,4 +66,4 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export function deactivate() { }

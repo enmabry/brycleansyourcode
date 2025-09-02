@@ -3,6 +3,7 @@
   "displayName": "BryCleansYourCode",
   "description": "Remove console.log, comments, and debugger statements",
   "version": "0.0.1",
+   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.103.0"
   },
