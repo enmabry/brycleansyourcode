@@ -1,71 +1,90 @@
-# brycleansyourcode README
+# BryCleansYourCode
 
-This is the README for your extension "brycleansyourcode". After writing up a brief description, we recommend including the following sections.
+¡Limpia tu código en un solo clic!  
+**BryCleansYourCode** es una extensión de Visual Studio Code que elimina automáticamente `console.log`, comentarios innecesarios, `debugger` statements y más, ayudándote a mantener tu código limpio y listo para producción.
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Ideal para:
+- Preparar código antes de un commit o deploy.
+- Eliminar rastros de depuración.
+- Mantener estándares de calidad en tu equipo.
 
 ---
 
-## Following extension guidelines
+## 🚀 Características
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Elimina de forma rápida y segura:
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+- ✅ `console.log`, `console.warn`, `console.error`, etc.
+- ✅ Comentarios (`//` y `/* */`)
+- ✅ Sentencias `debugger`
+- ✅ Líneas vacías sobrantes
+- 🎯 Todo con una interfaz sencilla y personalizable.
 
-## Working with Markdown
+### ¿Cómo funciona?
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+1. Abre un archivo.
+2. Ejecuta el comando: **"Bry: cleans your code"**.
+3. Elige qué eliminar:
+   - Solo `console.log`
+   - Solo comentarios
+   - Solo `debugger`
+   - Todo junto
+4. ¡Listo! Tu código queda limpio.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+![Demo de BryCleansYourCode](images/demo.gif)
 
-## For more information
+> 💡 *Consejo: Usa esta extensión antes de hacer push a tu repositorio para evitar dejar `console.log` por accidente.*
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+---
 
-**Enjoy!**
+## 🔧 Requisitos
+
+No requiere configuración adicional.  
+Solo necesitas:
+- Visual Studio Code (versión 1.103.0 o superior)
+- Node.js (para desarrollo o personalización)
+
+---
+
+## ⚙️ Configuración de la extensión
+
+Actualmente, BryCleansYourCode no agrega configuraciones personalizables, pero está diseñada para ser intuitiva y lista para usar.
+
+> 🔮 Próximamente: soporte para configurar qué elementos eliminar por defecto mediante `settings.json`.
+
+---
+
+## ⚠️ Problemas conocidos
+
+- No elimina `console.log` dentro de cadenas o comentarios (comportamiento esperado).
+- No soporta eliminación en múltiples archivos (próximamente).
+- Los comentarios `TODO` también se eliminan (en futuras versiones se podrán excluir).
+
+---
+
+## 📝 Notas de versión
+
+### 0.0.1
+- Versión inicial.
+- Eliminación básica de `console.log`, comentarios y `debugger`.
+- Interfaz de selección con menú rápido.
+
+### Próximas mejoras
+- Soporte para selección de texto parcial.
+- Exclusión de `TODO` y `FIXME`.
+- Limpieza en múltiples archivos o carpetas.
+- Integración con Git hooks (opcional).
+
+---
+
+## 📚 Sigue las mejores prácticas
+
+Esta extensión sigue las [Extension Guidelines de VS Code](https://code.visualstudio.com/api/references/extension-guidelines) para integrarse perfectamente con la interfaz nativa.
+
+---
+
+## 🙌 ¡Gracias por usar BryCleansYourCode!
+
+Si te gusta esta extensión, considera dejar una reseña en el [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/) o contribuir con ideas en GitHub.
+
+**¡Haz que tu código brille sin basura!** ✨
