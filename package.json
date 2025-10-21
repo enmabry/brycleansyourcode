@@ -1,9 +1,10 @@
 {
   "name": "brycleansyourcode",
   "displayName": "BryCleansYourCode",
-  "description": "Remove console.log, comments, and debugger statements",
+  "description": "Remove console.log, comments, and debugger statements for cleaner code.",
   "version": "0.0.1",
-   "icon": "images/icon.png",
+  "publisher": "bry", 
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.103.0"
   },
@@ -22,7 +23,7 @@
     "commands": [
       {
         "command": "brycleansyourcode.cleaning",
-        "title": "Bry: cleans your code"
+        "title": "Bry: Cleans Your Code"
       }
     ]
   },
@@ -44,5 +45,10 @@
     "typescript": "^5.9.2",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
-  }
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enmabry/brycleansyourcode/issues"
+  },
+  "homepage": "https://github.com/enmabry/brycleansyourcode#readme"
 }
