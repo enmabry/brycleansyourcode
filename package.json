@@ -2,8 +2,8 @@
   "name": "brycleansyourcode",
   "displayName": "BryCleansYourCode",
   "description": "Remove console.log, comments, and debugger statements for cleaner code.",
-  "version": "0.0.1",
-  "publisher": "bry", 
+  "version": "0.0.2",
+  "publisher": "bry",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.103.0"
