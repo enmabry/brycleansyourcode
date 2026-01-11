@@ -2,7 +2,7 @@
   "name": "code-cleaner-by-bry",
   "displayName": "Code Cleaner by Bry",
   "description": "Remove console.log, comments, debugger statements, and emojis for cleaner code.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "bry",
   "icon": "images/icon.png",
   "engines": {

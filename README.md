@@ -64,16 +64,15 @@ Sin embargo, se encuentra en desarrollo soporte para definir qué elementos elim
 
 ## Notas de versión
 
+### 0.1.2
+- Versión lista para Marketplace.
+- Funcionalidad completa de limpieza de emojis y selección de texto.
+
 ### 0.1.1
 - Añadida funcionalidad de eliminar emojis.
 - Implementado soporte para limpiar solo texto seleccionado.
 - Mejorada la detección de selecciones vacías.
 - Actualizado nombre de la extensión a "Code Cleaner by Bry".
-
-### 0.0.1
-- Versión inicial.  
-- Eliminación básica de `console.log`, comentarios y `debugger`.  
-- Interfaz de selección mediante menú rápido.
 
 ---
 
