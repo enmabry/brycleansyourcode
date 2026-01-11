@@ -1,7 +1,7 @@
 {
   "name": "codecleaner",
   "displayName": "Code Cleaner",
-  "description": "Remove console.log, comments, and debugger statements for cleaner code.",
+  "description": "Remove console.log, comments, debugger statements, and emojis for cleaner code.",
   "version": "0.1.0",
   "publisher": "bry",
   "icon": "images/icon.png",
@@ -31,6 +31,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "start": "npm run compile && code --extensionDevelopmentPath=.",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
     "test": "vscode-test"

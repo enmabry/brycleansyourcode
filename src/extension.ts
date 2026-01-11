@@ -211,9 +211,16 @@ function removeSimpleComments(code: string): string {
 // =============== EMOJIS ===============
 
 function removeEmojis(code: string): string {
-  // \p{Extended_Pictographic} detecta la mayoría de los símbolos gráficos y emojis modernos.
-  // La bandera 'u' (unicode) es obligatoria para que esto funcione.
-  return code.replace(/\p{Extended_Pictographic}/gu, '');
+  // Regex más completo que detecta:
+  // - Emojis básicos (\p{Extended_Pictographic})
+  // - Símbolos (\p{Symbol})
+  // - Modificadores de emojis (variantes de skin tone, ZWJ sequences, etc.)
+  return code
+    .replace(/[\p{Extended_Pictographic}\p{Emoji_Component}]/gu, '')
+    .replace(/\u200d/g, '') // Zero-width joiner (usado en emojis complejos)
+    .replace(/\uFE0F/g, '') // Variation selector (usado para emojis)
+    .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '') // Banderas (regional indicators)
+    .trim();
 }
 
 export function deactivate() {}
