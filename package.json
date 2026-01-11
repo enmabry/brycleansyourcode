@@ -1,6 +1,6 @@
 {
-  "name": "brycleansyourcode",
-  "displayName": "BryCleansYourCode",
+  "name": "codecleaner",
+  "displayName": "Code Cleaner",
   "description": "Remove console.log, comments, and debugger statements for cleaner code.",
   "version": "0.1.0",
   "publisher": "bry",
@@ -12,7 +12,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:brycleansyourcode.cleaning"
+    "onCommand:codecleaner.cleaning"
   ],
   "main": "./out/extension.js",
   "repository": {
@@ -22,8 +22,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "brycleansyourcode.cleaning",
-        "title": "Bry: Cleans Your Code"
+        "command": "codecleaner.cleaning",
+        "title": "Code Cleaner: Clean Your Code"
       }
     ]
   },

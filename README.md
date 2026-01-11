@@ -1,7 +1,7 @@
-# BryCleansYourCode
+# Code Cleaner
 
 Limpia tu código en un solo clic.  
-**BryCleansYourCode** es una extensión de Visual Studio Code que elimina automáticamente `console.log`, comentarios innecesarios, sentencias `debugger` y más, ayudándote a mantener tu código limpio y listo para producción.
+**Code Cleaner** es una extensión de Visual Studio Code que elimina automáticamente `console.log`, comentarios innecesarios, sentencias `debugger` y más, ayudándote a mantener tu código limpio y listo para producción.
 
 Ideal para:
 - Preparar código antes de un commit o despliegue.
@@ -24,7 +24,7 @@ Elimina de forma rápida y segura:
 
 1. Abre un archivo en Visual Studio Code.  
 2. Ejecuta el comando:  
-   **"Bry: cleans your code"**  
+   **"Code Cleaner: Clean Your Code"**  
 3. Selecciona qué deseas eliminar:
    - Solo `console.log`
    - Solo comentarios
@@ -47,7 +47,7 @@ Solo necesitas:
 
 ## Configuración
 
-Actualmente, BryCleansYourCode no incluye configuraciones personalizables.  
+Actualmente, Code Cleaner no incluye configuraciones personalizables.  
 Sin embargo, se encuentra en desarrollo soporte para definir qué elementos eliminar por defecto mediante `settings.json`.
 
 ---

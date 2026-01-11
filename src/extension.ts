@@ -6,12 +6,13 @@ import generate from '@babel/generator';
 export function activate(context: vscode.ExtensionContext) {
   console.log('Extensión "BryCleansYourCode" activada');
 
-  const disposable = vscode.commands.registerCommand('brycleansyourcode.cleaning', async () => {
+  const disposable = vscode.commands.registerCommand('codecleaner.cleaning', async () => {
     const choice = await vscode.window.showQuickPick(
       [
         { label: 'Eliminar console.log', value: 'logs' },
         { label: 'Eliminar comentarios', value: 'comments' },
         { label: 'Eliminar debugger', value: 'debugger' },
+        { label: 'Eliminar emojis', value: 'emojis' },
         { label: 'Eliminar todo', value: 'all' }
       ],
       { placeHolder: '¿Qué quieres eliminar?' }
@@ -49,6 +50,10 @@ export function activate(context: vscode.ExtensionContext) {
     // --- Eliminar comentarios simples (// ...) excepto directivas
     if (choice.value === 'comments' || choice.value === 'all') {
       newText = removeSimpleComments(newText);
+    }
+
+    if (choice.value === 'emojis' || choice.value === 'all') {
+      newText = removeEmojis(newText);
     }
 
     // Solo aplicar si hubo cambios
@@ -182,18 +187,33 @@ function removeDebuggerSafeRegex(code: string): string {
 // =============== COMENTARIOS ===============
 
 function removeSimpleComments(code: string): string {
+  // Regex que captura strings (comillas dobles, simples, backticks) O comentarios
+  const REGEX = /("(?:\\[\s\S]|[^"])*"|'(?:\\[\s\S]|[^'])*'|`(?:\\[\s\S]|[^`])*`)|(\/\/.*)/g;
+  
   const SAFE_DIRECTIVES = /@(ts-|eslint-|prettier-)|#(region|endregion)|@(preserve|license)/i;
-  return code
-    .split('\n')
-    .map(line => {
-      const commentIndex = line.indexOf('//');
-      if (commentIndex === -1) return line;
-      const before = line.substring(0, commentIndex);
-      const comment = line.substring(commentIndex);
-      if (SAFE_DIRECTIVES.test(comment)) return line;
-      return before;
-    })
-    .join('\n');
+
+  return code.replace(REGEX, (match, stringGroup, commentGroup) => {
+    // Si coincidió con un string (grupo 1), lo devolvemos intacto
+    if (stringGroup) return stringGroup;
+
+    // Si es un comentario (grupo 2), verificamos si es seguro
+    if (commentGroup) {
+      if (SAFE_DIRECTIVES.test(commentGroup)) {
+        return commentGroup; // Es una directiva, la dejamos
+      }
+      return ''; // Es un comentario normal, lo borramos
+    }
+    
+    return match;
+  });
+}
+
+// =============== EMOJIS ===============
+
+function removeEmojis(code: string): string {
+  // \p{Extended_Pictographic} detecta la mayoría de los símbolos gráficos y emojis modernos.
+  // La bandera 'u' (unicode) es obligatoria para que esto funcione.
+  return code.replace(/\p{Extended_Pictographic}/gu, '');
 }
 
 export function deactivate() {}
