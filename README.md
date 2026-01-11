@@ -1,7 +1,7 @@
-# Code Cleaner
+# Code Cleaner by Bry
 
 Limpia tu código en un solo clic.  
-**Code Cleaner** es una extensión de Visual Studio Code que elimina automáticamente `console.log`, comentarios innecesarios, sentencias `debugger` y más, ayudándote a mantener tu código limpio y listo para producción.
+**Code Cleaner by Bry** es una extensión de Visual Studio Code que elimina automáticamente `console.log`, comentarios innecesarios, sentencias `debugger`, emojis y más, ayudándote a mantener tu código limpio y listo para producción.
 
 Ideal para:
 - Preparar código antes de un commit o despliegue.
@@ -17,20 +17,22 @@ Elimina de forma rápida y segura:
 - `console.log`, `console.warn`, `console.error`, y otros métodos de consola.
 - Comentarios de una o varias líneas (`//` y `/* ... */`).
 - Sentencias `debugger`.
-- Líneas vacías sobrantes.
+- Emojis y símbolos especiales.
 - Todo mediante una interfaz simple y directa.
 
 ### Modo de uso
 
 1. Abre un archivo en Visual Studio Code.  
-2. Ejecuta el comando:  
+2. **(Opcional)** Selecciona el texto que deseas limpiar. Si no seleccionas nada, se limpiará todo el archivo.
+3. Ejecuta el comando:  
    **"Code Cleaner: Clean Your Code"**  
-3. Selecciona qué deseas eliminar:
+4. Selecciona qué deseas eliminar:
    - Solo `console.log`
    - Solo comentarios
    - Solo `debugger`
+   - Solo emojis
    - Todo junto  
-4. El código quedará limpio y listo para guardar o versionar.
+5. El código quedará limpio y listo para guardar o versionar.
 
 > Consejo: usa esta extensión antes de hacer *push* a tu repositorio para evitar dejar `console.log` o código de depuración por accidente.
 
@@ -47,7 +49,7 @@ Solo necesitas:
 
 ## Configuración
 
-Actualmente, Code Cleaner no incluye configuraciones personalizables.  
+Actualmente, Code Cleaner by Bry no incluye configuraciones personalizables.  
 Sin embargo, se encuentra en desarrollo soporte para definir qué elementos eliminar por defecto mediante `settings.json`.
 
 ---
@@ -62,15 +64,16 @@ Sin embargo, se encuentra en desarrollo soporte para definir qué elementos elim
 
 ## Notas de versión
 
+### 0.1.1
+- Añadida funcionalidad de eliminar emojis.
+- Implementado soporte para limpiar solo texto seleccionado.
+- Mejorada la detección de selecciones vacías.
+- Actualizado nombre de la extensión a "Code Cleaner by Bry".
+
 ### 0.0.1
 - Versión inicial.  
 - Eliminación básica de `console.log`, comentarios y `debugger`.  
 - Interfaz de selección mediante menú rápido.
-
-### Próximas mejoras
-- Soporte para selección parcial de texto.  
-- Limpieza en múltiples archivos o carpetas.  
-- Integración opcional con Git hooks.
 
 ---
 
